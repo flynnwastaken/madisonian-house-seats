@@ -1,8 +1,11 @@
-require "../flynn_methods.rb"
+def prompt
+  print ">> "
+end
 
 def end_query
   puts "Do you want to run again? (Y)/(N)"
-  reply = getsc(reply)
+  prompt
+  reply = $stdin.gets.chomp
 
   if reply.downcase == "y"
     madisonian
@@ -16,7 +19,8 @@ end
 
 def madisonian
   puts "What is the population of your state?"
-  population = getfc(population)
+  prompt
+  population = $stdin.gets.chomp.to_f
 
   limit = 100
 
